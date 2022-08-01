@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&family=Roboto:ital,wght@0,400;0,500;1,500&display=swap");
+
+:root {
+  --bg-color: #f9fafb;
+  --bg-color-filler: #fff;
+  --bg-color-accent: #596d48;
+  --bg-color-input-border: #e5e7eb;
+
+  --h1-color: #fff;
+  --form-color: #1f2937;
+
+  --ff-en: "Roboto", sans-serif;
+  --ff-jp: "M PLUS Rounded 1c", sans-serif;
+
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-700: 700;
+
+  --fs-300: 14px;
+  --fs-400: 20px;
+  --fs-500: 24px;
+
+  --fst-it: italic;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: #000;
+}
+
+.h1-color {
+  color: var(--h1-color);
+}
+
+.form-color {
+  color: var(--form-color);
+}
+
+.a-color {
+  color: var(--bg-color-accent);
+}
+
+.ff-en {
+  font-family: var(--ff-en);
+}
+
+.ff-jp {
+  font-family: var(--ff-jp);
+}
+
+.fw-400 {
+  font-weight: var(--fw-400);
+}
+
+.fw-500 {
+  font-weight: var(--fw-500);
+}
+
+.fw-700 {
+  font-weight: var(--fw-700);
+}
+
+.fs-300 {
+  font-size: var(--fs-300);
+}
+
+.fs-400 {
+  font-size: var(--fs-400);
+}
+
+.fs-500 {
+  font-size: var(--fs-500);
+}
+
+.fst-it {
+  font-style: var(--fst-it);
+}
+
+.main {
+  display: flex;
+}
+
+.logo-side {
+  width: 600px;
+  height: 100vh;
+
+  background-image: url("./bg.avif");
+}
+
+.form-side {
+  height: 100vh;
+  width: calc(100vw - 600px);
+}
+
+.sign-up-form {
+  display: flex;
+}
+
+.sign-up-form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up-form > div > input {
+  height: 24px;
+  width: 200px;
+}
