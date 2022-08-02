@@ -16,7 +16,7 @@
   --fw-500: 500;
   --fw-700: 700;
 
-  --fs-300: 14px;
+  --fs-300: 11px;
   --fs-400: 20px;
   --fs-500: 24px;
   --fs-700: 48px;
@@ -34,7 +34,11 @@
 
 body {
   background-color: var(--bg-color);
-  color: #000;
+  color: rgb(22, 22, 22);
+}
+
+fieldset {
+  border: none;
 }
 
 .h1-color {
@@ -124,13 +128,7 @@ body {
 
 .form-side {
   height: 100vh;
-  width: calc(100vw - 600px);
-}
-
-.container {
-  margin: 0 auto;
-  max-width: 90%;
-  height: 100%;
+  width: calc(100vw - 520px);
 
   display: flex;
   flex-direction: column;
@@ -138,17 +136,101 @@ body {
   gap: 50px;
 }
 
-.sign-up-form {
-  display: flex;
-  flex-wrap: wrap;
+.container {
+  margin-top: -150px;
+  max-width: calc(100vw - 800px);
+  padding-left: 35px;
 }
 
-.sign-up-form > div {
+.preface {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.inputs {
+  background-color: var(--bg-color-filler);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.267);
+}
+
+.inputs > p {
+  padding: 15px 35px;
+}
+
+.sign-up-field {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+  column-gap: 55px;
+  height: 25vh;
+  max-width: calc(100vw - 700px);
+  padding-left: 35px;
+  margin-bottom: 0;
+}
+
+.sign-up-field > div {
   display: flex;
   flex-direction: column;
 }
 
-.sign-up-form > div > input {
-  height: 24px;
+.sign-up-field > div > input {
+  height: 32px;
+  width: 225px;
+  padding: 2px 8px;
+  font-size: 16px;
+
+  border: 1px solid var(--bg-color-input-border);
+  border-radius: 5px;
+}
+
+.sign-up-field > div > input:focus {
+  outline: none;
+  border: 1px solid rgb(57, 107, 184);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.sign-up-field > div > label {
+  margin: 2px 0;
+  letter-spacing: 3px;
+}
+
+.button-field {
+  margin: 38px 0 30px 35px;
+}
+
+.button {
+  border: none;
+  border-radius: 7px;
+  background-color: var(--bg-color-accent);
+  color: var(--bg-color);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+
+  height: 2.25em;
   width: 200px;
+  transition: opacity 0.2s;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.button:active {
+  opacity: 0.65;
+}
+
+.already {
+  margin-left: 35px;
+}
+
+.already > a {
+  transition: opacity 0.2s;
+}
+
+.already > a:hover {
+  opacity: 0.8;
+}
+
+.already > a:active {
+  opacity: 0.6;
 }
