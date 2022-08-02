@@ -83,6 +83,7 @@
                     type="number"
                     name="phone-number"
                     id="phone-number"
+                    pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}"
                     required
                   />
                   <p class="absolute trans | ff-en fs-350 fw-400">
@@ -109,7 +110,12 @@
                   <label for="conf-pswd" class="form-color ff-en fs-300 fw-500"
                     >CONFIRM PASSWORD</label
                   >
-                  <input type="text" name="conf-pswd" id="conf-pswd" required />
+                  <input
+                    type="password"
+                    name="conf-pswd"
+                    id="conf-pswd"
+                    required
+                  />
                   <p class="absolute trans | ff-en fs-350 fw-400">
                     * wrong input
                   </p>
