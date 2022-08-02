@@ -17,6 +17,7 @@
   --fw-700: 700;
 
   --fs-300: 11px;
+  --fs-350: 16px;
   --fs-400: 20px;
   --fs-500: 24px;
   --fs-700: 48px;
@@ -75,6 +76,10 @@ fieldset {
 
 .fs-300 {
   font-size: var(--fs-300);
+}
+
+.fs-350 {
+  font-size: var(--fs-350);
 }
 
 .fs-400 {
@@ -172,6 +177,7 @@ fieldset {
 .sign-up-field > div {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .sign-up-field > div > input {
@@ -193,6 +199,16 @@ fieldset {
 .sign-up-field > div > label {
   margin: 2px 0;
   letter-spacing: 3px;
+}
+
+.absolute {
+  position: absolute;
+  bottom: -1.2em;
+  color: rgb(224, 59, 59);
+}
+
+.trans {
+  color: transparent;
 }
 
 .button-field {
@@ -233,4 +249,14 @@ fieldset {
 
 .already > a:active {
   opacity: 0.6;
+}
+
+@media (max-width: 1239px) {
+  .container {
+    margin-top: 0;
+  }
+
+  .sign-up-field {
+    height: 50vh;
+  }
 }
