@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Sign Up</title>
     <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
   </head>
   <body>
     <main class="main">
@@ -28,7 +29,7 @@
           </div>
         </div>
         <div class="sign-up-section">
-          <form action="post">
+          <form action="" novalidate>
             <fieldset class="inputs">
               <p class="form-color ff-en fw-500 fs-500">Let's do this!</p>
               <div class="sign-up-field">
@@ -44,9 +45,7 @@
                     maxlength="20"
                     required
                   />
-                  <p class="absolute trans | ff-en fs-350 fw-400">
-                    * wrong input
-                  </p>
+                  <p class="absolute trans | ff-en fs-350 fw-400"></p>
                 </div>
                 <div>
                   <label for="last-name" class="form-color ff-en fs-300 fw-500"
@@ -60,18 +59,21 @@
                     maxlength="24"
                     required
                   />
-                  <p class="absolute trans | ff-en fs-350 fw-400">
-                    * wrong input
-                  </p>
+                  <p class="absolute trans | ff-en fs-350 fw-400"></p>
                 </div>
                 <div>
                   <label for="email" class="form-color ff-en fs-300 fw-500"
                     >EMAIL</label
                   >
-                  <input type="email" name="email" id="email" required />
-                  <p class="absolute trans | ff-en fs-350 fw-400">
-                    * wrong input
-                  </p>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    minlength="3"
+                    maxlength="69"
+                    required
+                  />
+                  <p class="absolute trans | ff-en fs-350 fw-400"></p>
                 </div>
                 <div>
                   <label
@@ -83,12 +85,12 @@
                     type="number"
                     name="phone-number"
                     id="phone-number"
+                    minlength="4"
+                    maxlength="13"
                     pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}"
                     required
                   />
-                  <p class="absolute trans | ff-en fs-350 fw-400">
-                    * wrong input
-                  </p>
+                  <p class="absolute trans | ff-en fs-350 fw-400"></p>
                 </div>
                 <div>
                   <label for="pswd" class="form-color ff-en fs-300 fw-500"
@@ -98,13 +100,11 @@
                     type="password"
                     name="pswd"
                     id="pswd"
-                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$
-                  "
+                    minlength="8"
+                    maxlength="20"
                     required
                   />
-                  <p class="absolute trans | ff-en fs-350 fw-400">
-                    * wrong input
-                  </p>
+                  <p class="absolute trans | ff-en fs-350 fw-400"></p>
                 </div>
                 <div>
                   <label for="conf-pswd" class="form-color ff-en fs-300 fw-500"
@@ -114,22 +114,22 @@
                     type="password"
                     name="conf-pswd"
                     id="conf-pswd"
+                    minlength="8"
+                    maxlength="20"
                     required
                   />
-                  <p class="absolute trans | ff-en fs-350 fw-400">
-                    * wrong input
-                  </p>
+                  <p class="absolute trans | ff-en fs-350 fw-400"></p>
                 </div>
               </div>
             </fieldset>
             <fieldset class="button-field">
-              <button class="button | ff-en fw-500 fs-400">
+              <button class="button | ff-en fw-500 fs-400" href="#">
                 Create Account
               </button>
             </fieldset>
           </form>
           <p class="already | ff-en fs-400 fw-300">
-            Already have an account? <a href="" class="a-color">Log in</a>
+            Already have an account? <a href="#" class="a-color">Log in</a>
           </p>
         </div>
       </div>
