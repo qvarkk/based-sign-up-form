@@ -48,7 +48,7 @@ form.addEventListener("submit", (e) => {
   ) {
     LoadOnSuccess();
   } else {
-    console.log("failed");
+    LoadOnFail();
   }
 });
 
@@ -161,4 +161,8 @@ function LoadOnSuccess() {
     Phone number is: ${phoneNum.value}
     Password is: ${password.value}`
   );
+}
+
+function LoadOnFail() {
+  console.log("failed");
 }
