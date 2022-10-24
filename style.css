@@ -214,8 +214,8 @@ fieldset {
 }
 
 .ready-checkbox {
-  position: absolute;
-  height: 20px !important;
+  height: 30px !important;
+  width: 30px !important;
 }
 
 .error-message {

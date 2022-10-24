@@ -25,14 +25,6 @@ const errorMessages = {
   passMismatch: "Passwords aren't matching",
 };
 
-// Only for testing purposes
-fName.value = "Chief";
-sName.value = "Keef";
-email.value = "cheefkeef@a.a";
-phoneNum.value = "+1234";
-password.value = "cheefkeef";
-password2.value = "cheefkeef";
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
