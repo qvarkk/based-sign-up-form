@@ -11,7 +11,7 @@
     <main class="main">
       <div class="logo-side">
         <div class="logo-placeholder">
-          <img src="./logo.svg" alt="" />
+          <img src="./logo.svg" alt="" draggable="false" />
           <h1 class="h1-color ff-jp fs-700">くそを食べたい</h1>
         </div>
       </div>
@@ -38,43 +38,22 @@
                   <label for="first-name" class="form-color ff-en fs-300 fw-500"
                     >FIRST NAME</label
                   >
-                  <input
-                    type="text"
-                    name="first-name"
-                    id="first-name"
-                    minlength="1"
-                    maxlength="20"
-                    required
-                  />
-                  <p class="absolute trans | ff-en fs-350 fw-400"></p>
+                  <input type="text" name="first-name" id="first-name" />
+                  <p class="error-message trans | ff-en fs-350 fw-400"></p>
                 </div>
                 <div>
                   <label for="last-name" class="form-color ff-en fs-300 fw-500"
                     >LAST NAME</label
                   >
-                  <input
-                    type="text"
-                    name="last-name"
-                    id="last-name"
-                    minlength="1"
-                    maxlength="24"
-                    required
-                  />
-                  <p class="absolute trans | ff-en fs-350 fw-400"></p>
+                  <input type="text" name="last-name" id="last-name" />
+                  <p class="error-message trans | ff-en fs-350 fw-400"></p>
                 </div>
                 <div>
                   <label for="email" class="form-color ff-en fs-300 fw-500"
                     >EMAIL</label
                   >
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    minlength="3"
-                    maxlength="69"
-                    required
-                  />
-                  <p class="absolute trans | ff-en fs-350 fw-400"></p>
+                  <input type="email" name="email" id="email" />
+                  <p class="error-message trans | ff-en fs-350 fw-400"></p>
                 </div>
                 <div>
                   <label
@@ -82,49 +61,33 @@
                     class="form-color ff-en fs-300 fw-500"
                     >PHONE NUMBER</label
                   >
-                  <input
-                    type="number"
-                    name="phone-number"
-                    id="phone-number"
-                    minlength="4"
-                    maxlength="13"
-                    pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}"
-                    required
-                  />
-                  <p class="absolute trans | ff-en fs-350 fw-400"></p>
+                  <input type="number" name="phone-number" id="phone-number" />
+                  <p class="error-message trans | ff-en fs-350 fw-400"></p>
                 </div>
                 <div>
                   <label for="pswd" class="form-color ff-en fs-300 fw-500"
                     >PASSWORD</label
                   >
-                  <input
-                    type="password"
-                    name="pswd"
-                    id="pswd"
-                    minlength="8"
-                    maxlength="20"
-                    required
-                  />
-                  <p class="absolute trans | ff-en fs-350 fw-400"></p>
+                  <input type="password" name="pswd" id="pswd" />
+                  <p class="error-message trans | ff-en fs-350 fw-400"></p>
                 </div>
                 <div>
                   <label for="conf-pswd" class="form-color ff-en fs-300 fw-500"
                     >CONFIRM PASSWORD</label
                   >
-                  <input
-                    type="password"
-                    name="conf-pswd"
-                    id="conf-pswd"
-                    minlength="8"
-                    maxlength="20"
-                    required
-                  />
-                  <p class="absolute trans | ff-en fs-350 fw-400"></p>
+                  <input type="password" name="conf-pswd" id="conf-pswd" />
+                  <p class="error-message trans | ff-en fs-350 fw-400"></p>
+                </div>
+                <div class="checkbox-div">
+                  <label for="ready" class="form-color ff-en fs-300 fw-500"
+                    >ARE YOU READY?</label
+                  >
+                  <input class="ready-checkbox" type="checkbox" id="ready" />
                 </div>
               </div>
             </fieldset>
             <fieldset class="button-field">
-              <button class="button | ff-en fw-500 fs-400" href="#">
+              <button class="button | ff-en fw-500 fs-400">
                 Create Account
               </button>
             </fieldset>

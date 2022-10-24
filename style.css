@@ -25,18 +25,6 @@
   --fst-it: italic;
 }
 
-/* removing spinners in number input field */
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
 /* micro-reset */
 
 *,
@@ -202,7 +190,7 @@ fieldset {
   position: relative;
 }
 
-/* fuck off, i'm not giving every single one of these new class */
+/* i'm not giving every single one of these new class */
 
 .sign-up-field > div > input {
   height: 32px;
@@ -225,7 +213,12 @@ fieldset {
   letter-spacing: 3px;
 }
 
-.absolute {
+.ready-checkbox {
+  position: absolute;
+  height: 20px !important;
+}
+
+.error-message {
   position: absolute;
   bottom: -1.2em;
   color: rgb(224, 59, 59);
@@ -259,8 +252,6 @@ fieldset {
   opacity: 0.65;
 }
 
-/* nice naming example */
-
 .already {
   margin-left: 35px;
 }
@@ -277,7 +268,7 @@ fieldset {
   opacity: 0.6;
 }
 
-/* i'll not do it suitable for mobile but will do bare minimum to keep it clean on "small" resolution */
+/* Attempt to make the page a bit responsive */
 
 @media (max-width: 1239px) {
   .container {
