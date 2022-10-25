@@ -14,6 +14,7 @@ const validities = {
   password: false,
   password2: false,
 };
+const inputsArray = [fName, sName, email, phoneNum, password, password2];
 
 // To make code more readable
 const errorMessages = {
@@ -24,6 +25,26 @@ const errorMessages = {
   typeMismatch: "Wrong input value",
   passMismatch: "Passwords aren't matching",
 };
+
+fName.addEventListener("input", () => {
+  CheckFNameValidity(fName.value.trim());
+});
+sName.addEventListener("input", () => {
+  CheckSNameValidity(sName.value.trim());
+});
+email.addEventListener("input", () => {
+  CheckEmailValidity(email.value.trim());
+});
+phoneNum.addEventListener("input", () => {
+  CheckPhoneValidity(phoneNum.value.trim());
+});
+password.addEventListener("input", () => {
+  CheckPasswordValidity(password.value.trim());
+  CheckPassword2Validity(password.value.trim(), password2.value.trim());
+});
+password2.addEventListener("input", () => {
+  CheckPassword2Validity(password.value.trim(), password2.value.trim());
+});
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -43,6 +64,75 @@ form.addEventListener("submit", (e) => {
     LoadOnFail();
   }
 });
+
+// Separate validations for every element (cuz I need to use those twice)
+function CheckFNameValidity(fNameValue) {
+  if (fNameValue == "" || fNameValue == null) {
+    SetError(fName, errorMessages.valueMissing, "fName");
+  } else if (fNameValue.length > 20) {
+    SetError(fName, errorMessages.tooLong, "fName");
+  } else if (!ValidateNames(fNameValue)) {
+    SetError(fName, errorMessages.typeMismatch, "fName");
+  } else {
+    SetSuccess(fName, "fName");
+  }
+}
+
+function CheckSNameValidity(sNameValue) {
+  if (sNameValue == "" || sNameValue == null) {
+    SetError(sName, errorMessages.valueMissing, "sName");
+  } else if (sNameValue.length > 20) {
+    SetError(sName, errorMessages.tooLong, "sName");
+  } else if (!ValidateNames(sNameValue)) {
+    SetError(sName, errorMessages.typeMismatch, "sName");
+  } else {
+    SetSuccess(sName, "sName");
+  }
+}
+
+function CheckEmailValidity(emailValue) {
+  if (emailValue == "" || emailValue == null) {
+    SetError(email, errorMessages.valueMissing, "email");
+  } else if (!ValidateEmail(emailValue)) {
+    SetError(email, errorMessages.typeMismatch, "email");
+  } else {
+    SetSuccess(email, "email");
+  }
+}
+
+function CheckPhoneValidity(phoneNumValue) {
+  if (phoneNumValue == "" || phoneNumValue == null) {
+    SetError(phoneNum, errorMessages.valueMissing, "phone");
+  } else if (phoneNumValue.length < 5) {
+    SetError(phoneNum, errorMessages.tooShort, "phone");
+  } else if (phoneNumValue.length > 12) {
+    SetError(phoneNum, errorMessages.tooLong, "phone");
+  } else if (!ValidatePhone(phoneNumValue)) {
+    SetError(phoneNum, errorMessages.typeMismatch, "phone");
+  } else {
+    SetSuccess(phoneNum, "phone");
+  }
+}
+
+function CheckPasswordValidity(passwordValue) {
+  if (passwordValue == "" || passwordValue == null) {
+    SetError(password, errorMessages.valueMissing, "password");
+  } else if (passwordValue.length < 6) {
+    SetError(password, errorMessages.tooShort, "password");
+  } else if (passwordValue.length > 24) {
+    SetError(password, errorMessages.tooLong, "password");
+  } else {
+    SetSuccess(password, "password");
+  }
+}
+
+function CheckPassword2Validity(passwordValue, password2Value) {
+  if (password2Value !== passwordValue) {
+    SetError(password2, errorMessages.passMismatch, "password2");
+  } else {
+    SetSuccess(password2, "password2");
+  }
+}
 
 // Start of inputs values validation
 function ValidateNames(name) {
@@ -67,6 +157,7 @@ function SetError(elm, msg, which) {
   const inputControl = elm.parentElement;
   const errorDisplay = inputControl.querySelector(".error-message"); //kinda lame but I'm lazy
 
+  elm.classList.add("invalid-input");
   errorDisplay.innerText = msg;
   errorDisplay.classList.remove("trans");
   validities[which] = false;
@@ -76,6 +167,7 @@ function SetSuccess(elm, which) {
   const inputControl = elm.parentElement;
   const errorDisplay = inputControl.querySelector(".error-message");
 
+  elm.classList.remove("invalid-input");
   errorDisplay.innerText = "";
   errorDisplay.classList.add("trans");
   validities[which] = true;
@@ -90,57 +182,17 @@ function ValidateInputs() {
   const passwordValue = password.value.trim();
   const password2Value = password2.value.trim();
 
-  if (fNameValue == "" || fNameValue == null) {
-    SetError(fName, errorMessages.valueMissing, "fName");
-  } else if (fNameValue.length > 20) {
-    SetError(fName, errorMessages.tooLong, "fName");
-  } else if (!ValidateNames(fNameValue)) {
-    SetError(fName, errorMessages.typeMismatch, "fName");
-  } else {
-    SetSuccess(fName, "fName");
-  }
+  CheckFNameValidity(fNameValue);
 
-  if (sNameValue == "" || sNameValue == null) {
-    SetError(sName, errorMessages.valueMissing, "sName");
-  } else if (sNameValue.length > 20) {
-    SetError(sName, errorMessages.tooLong, "sName");
-  } else if (!ValidateNames(sNameValue)) {
-    SetError(sName, errorMessages.typeMismatch, "sName");
-  } else {
-    SetSuccess(sName, "sName");
-  }
+  CheckSNameValidity(sNameValue);
 
-  if (emailValue == "" || emailValue == null) {
-    SetError(email, errorMessages.valueMissing, "email");
-  } else if (!ValidateEmail(emailValue)) {
-    SetError(email, errorMessages.typeMismatch, "email");
-  } else {
-    SetSuccess(email, "email");
-  }
+  CheckEmailValidity(emailValue);
 
-  if (phoneNumValue == "" || phoneNumValue == null) {
-    SetError(phoneNum, errorMessages.valueMissing, "phone");
-  } else if (!ValidatePhone(phoneNumValue)) {
-    SetError(phoneNum, errorMessages.typeMismatch, "phone");
-  } else {
-    SetSuccess(phoneNum, "phone");
-  }
+  CheckPhoneValidity(phoneNumValue);
 
-  if (passwordValue == "" || passwordValue == null) {
-    SetError(password, errorMessages.valueMissing, "password");
-  } else if (passwordValue.length < 6) {
-    SetError(password, errorMessages.tooShort, "password");
-  } else if (passwordValue.length > 24) {
-    SetError(password, errorMessages.tooLong, "password");
-  } else {
-    SetSuccess(password, "password");
-  }
+  CheckPasswordValidity(passwordValue);
 
-  if (password2Value !== passwordValue) {
-    SetError(password2, errorMessages.passMismatch, "password2");
-  } else {
-    SetSuccess(password2, "password2");
-  }
+  CheckPassword2Validity(passwordValue, password2Value);
 }
 
 // Only for test purposes

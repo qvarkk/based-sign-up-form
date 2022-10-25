@@ -208,6 +208,10 @@ fieldset {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
+.invalid-input {
+  border: 1px solid rgb(224, 59, 59) !important;
+}
+
 .sign-up-field > div > label {
   margin: 2px 0;
   letter-spacing: 3px;
